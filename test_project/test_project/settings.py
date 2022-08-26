@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'test_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'thaiver_django',
+       'USER': 'thaiver',
+       'PASSWORD': 'thaiver',
+       'HOST': 'localhost',
+       'PORT': '5432',
     }
 }
 
@@ -122,3 +126,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CELERY_BROKER_URL = 'redis://localhost:6379'
